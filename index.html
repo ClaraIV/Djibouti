@@ -261,7 +261,7 @@
         '<i style="background: #edc785; opacity: 0.9"></i><p><b>1.00km - 1.25km</b></p>' +
         '<i style="background: #f59d4b; opacity: 0.9"></i><p><b>1.25km - 3.50km</b></p>' +
         '<i style="background: #ff1105; opacity: 0.9"></i><p><b>3.50km+</b></p>'+
-        '<i class="fa fa-medkit"style="font-size:25px;color:#1d78c8;z-index: 1"></i><p><b>Health Facilities</b></p>';
+        '<i class="fa fa-medkit"style="font-size:20px;color:#1d78c8;z-index: 1"></i><p><b>Health Facilities</b></p>';
 
 
     var Sanitation_Coverage_legend= '<h7>Distance to Well Points</h7></br></br>'+
@@ -352,8 +352,12 @@
         }), was_region_legend],
 
         'Health_Facilites': [L.geoJson.ajax('assets/HF.geojson', {
-            color: 'red',
-            weight: 4
+            //color: 'red',
+            //weight: 4
+		style: function(feature) {
+		return {
+			iconUrl: '<i class="fa fa-medkit"style="font-size:20px;color:#1d78c8;z-index: 1">'
+		}
         })],
 
         'Buildings_by_distance': [L.tileLayer('https://api.mapbox.com/styles/v1/lilili/cjkjs92nl4xts2rpktn94y4nh/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibGlsaWxpIiwiYSI6ImNqamZiczF1czA1bGIzcHAwN2J5NndyaG4ifQ.V5VP-UiOg5Uz8BQK_VqLpg', {
