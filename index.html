@@ -261,7 +261,7 @@
         '<i style="background: #edc785; opacity: 0.9"></i><p><b>1.00km - 1.25km</b></p>' +
         '<i style="background: #f59d4b; opacity: 0.9"></i><p><b>1.25km - 3.50km</b></p>' +
         '<i style="background: #ff1105; opacity: 0.9"></i><p><b>3.50km+</b></p>'+
-        '<i class="fa fa-map-marker"style="font-size:25px;color:#1d78c8;z-index: 1"></i><p><b>Health Facilities</b></p>';
+        '<i class="fa fa-medkit"style="font-size:25px;color:#1d78c8;z-index: 1"></i><p><b>Health Facilities</b></p>';
 
 
     var Sanitation_Coverage_legend= '<h7>Distance to Well Points</h7></br></br>'+
@@ -273,13 +273,8 @@
         '<i style="background: #edc785; opacity: 0.9"></i><p><b>1.00km - 1.25km</b></p>' +
         '<i style="background: #f59d4b; opacity: 0.9"></i><p><b>1.25km - 3.50km</b></p>' +
         '<i style="background: #ff1105; opacity: 0.9"></i><p><b>3.50km+</b></p>'+
-        '<i class="fa fa-map-marker"style="font-size:25px;color:#1d78c8;z-index: 1"></i><p><b>Well Points</b></p>';
-
-
-
-
-
-
+        '<i class="fa fa-tint"style="font-size:20px;color:#1d78c8;z-index: 1"></i><p><b>Well Points</b></p>';
+	
 
     // stu Color&Style
     function stu_setColor(density){
@@ -366,8 +361,8 @@
         }),Buildings_by_distance],
 
         'Wells': [L.geoJson.ajax('assets/Wells.geojson', {
-            color: 'red',
-            weight: 4
+            //color: 'red',
+            //weight: 4
         })],
         'Buildings_by_distance_wells': [L.tileLayer('https://api.mapbox.com/styles/v1/lilili/cjknwptw68k582ss2xhvxswz9/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibGlsaWxpIiwiYSI6ImNqamZiczF1czA1bGIzcHAwN2J5NndyaG4ifQ.V5VP-UiOg5Uz8BQK_VqLpg', {
             id: 'mapbox.Buildings_by_distance'
