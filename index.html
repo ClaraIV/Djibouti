@@ -54,9 +54,6 @@
     <script src="js/Serve_Stu.js"></script>
     <script src="js/Serve_Was.js"></script>
 
-
-
-
     <!--story map plugin-->
     <script src="js/storymap.js"></script>
 
@@ -80,26 +77,21 @@
                     font-size:60px;
                     background-color: hsla(78, 100%, 0%, 0.59);
                     padding-top: 20px;
-                    padding-bottom: 5px;
-                    "> Djibouti Stunting <br/><p style="font-size:20px;">a World Bank Group project</p></h3>
-
+                    padding-bottom: 15px;
+                    "> Djibouti Stunting <br/>
+					<!--<p style="font-size:20px;">a World Bank Group project</p>-->
+					</h3>					
                 </div>
-
-            </section>
-
-            <section data-scene="overview" >
-                <div class="overview-background-img background-fullscreen-setting text-center" style="background-size: cover"></div>
-                <div class="background-fullscreen-setting text-responsive text-center">
-                    <br/><br/><br/><br/><br/><br/><br/><br/><br/>
-                    <h2 style="margin-left: 25%;
-                    font-size:40px;
-                    font-weight: bold;
+				 <div class="background-fullscreen-setting text-responsive text-center">                 
+                    <p style="font-size:19px;
+					position: relative;
+					top: 60%;
+					font-weight: bold;
                     color: white;
-                    margin-right:20%;
-                    text-align: justify;">
-                        Good nutrition is critical for the growth and development of babies and children during their first 1,000 days of life – from pregnancy to a child’s second birthday.</br></br></br>
+                    text-align: center;">
+                        Good nutrition is critical for the growth and development of babies and children during their first 1,000 days of life – from pregnancy to a child’s second birthday.</br>
                         During this critical time, malnutrition can cause irreversible damage to children’s brain development and their physical growth, putting them at increased risk of developing chronic illnesses later in life.
-                    </h2>
+                    </p>
                 </div>
             </section>
 
@@ -400,7 +392,8 @@
             var map = L.map('map', {zoomControl: false, scrollWheelZoom: false}).setView([44, -120], 8);
 
             // add an base map, which can be either OSM, mapbox, tilelayer, wmslayer or those designed by yourself.
-			 L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}', {maxZoom: 16}).addTo(map);
+			L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}', {maxZoom: 16}).addTo(map);
+		
             //L.tileLayer('http://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png').addTo(map);
 
             // // create a mini globe as the overview map control.
