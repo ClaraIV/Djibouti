@@ -77,11 +77,11 @@
                     position:relative;
                     top: 40%;
                     text-align: center;
-                    font-size:80px;
+                    font-size:60px;
                     background-color: hsla(78, 100%, 0%, 0.59);
                     padding-top: 20px;
-                    padding-bottom: 30px;
-                    "> Djibouti Stunting <br/><p style="font-size:20px;">WorldBank Group</p></h3>
+                    padding-bottom: 5px;
+                    "> Djibouti Stunting <br/><p style="font-size:20px;">a World Bank Group project</p></h3>
 
                 </div>
 
@@ -147,28 +147,20 @@
 
                 </p>
             </section>
-
-            <section data-scene="Food_Security">
-                <div class="desert-background-img background-fullscreen-setting text-center" style="background-size: cover"></div>
-                <div class="background-fullscreen-setting text-responsive text-center">
-                    <div style="
-                    margin-top: 10%;
-                    margin-left: 20%;
-                    margin-right:20%;
-                    color: black;
-                    font-weight: bold;
-                    text-align: center;">
-                        <h2 style="font-size:60px;">What's the cause of stunting?</h2>
-                        <h4 style="font-size:45px;text-align: justify;">Determinant 2: Food Security</h4></br>
-                        <p style="font-size:25px;text-align: justify;">Food insecurity is a persistent problem across Djibouti. With limited arable land, low rainfall and prolonged droughts, agriculture production and livelihoods are severely affected.</p>
-                        <p style="font-size:25px;text-align: justify;">Agriculture is almost nonexistent, accounting only for about 3 percent of GDP and 2 percent of employment.</p>
-                        <p style="font-size:25px;text-align: justify;">Food insecurity high across the country, 75% of the rural population food insecure and 20% in Djibouti City.</p>
-                        <p style="font-size:25px;text-align: justify;">As a result, an alarmingly low percentage of children are consuming a minimum acceptable diet (i.e., at least four food groups and three meals per day) and getting the right nutrients to
+			
+			<section data-scene="Food_Security">
+                <h2>What's the cause of stunting?</h2>
+                <h4 style='font-weight: bolder' >Determinant 2: Food Security</h4></br>
+                <p style="font-size:18px;"><strong>Food insecurity is a persistent problem across Djibouti. With limited arable land, low rainfall and prolonged droughts, agriculture production and livelihoods are severely affected.</strong>
+				 <p style="font-size:18px;text-align: justify;">Agriculture is almost nonexistent, accounting only for about 3 percent of GDP and 2 percent of employment.</p>
+                        <p style="font-size:18px;text-align: justify;">Food insecurity high across the country, 75% of the rural population food insecure and 20% in Djibouti City.</p>
+                        <p style="font-size:18px;text-align: justify;">As a result, an alarmingly low percentage of children are consuming a minimum acceptable diet (i.e., at least four food groups and three meals per day) and getting the right nutrients to
                             grow and thrive.</p>
-                    </div>
-                </div>
-            </section>
+                    <img src="img/arid.jpg" class="img-responsive" alt="responsive image" style= "margin-left: auto;margin-right: auto;">
 
+                </p>
+            </section>
+           
             <section data-scene="Wash">
                 <h2>What's the cause of stunting?</h2>
                 <h4 style='font-weight: bolder' >Determinant 3: Poor Sanitation</h4></br>
@@ -274,7 +266,12 @@
         '<i style="background: #f59d4b; opacity: 0.9"></i><p><b>1.25km - 3.50km</b></p>' +
         '<i style="background: #ff1105; opacity: 0.9"></i><p><b>3.50km+</b></p>'+
         '<i class="fa fa-tint"style="font-size:20px;color:#1d78c8;z-index: 1"></i><p><b>Well Points</b></p>';
+
+
 	
+
+
+
 
     // stu Color&Style
     function stu_setColor(density){
@@ -325,10 +322,10 @@
         })],
 
         // Data Layers
-        'HF': [L.geoJson.ajax('assets/HF.geojson', {
-            color: 'orange',
-            weight: 5
-        }), stu_was_national_legend],
+      //  'HF': [L.geoJson.ajax('assets/HF.geojson', {
+            //color: 'orange',
+            //weight: 5
+     //   }), stu_was_national_legend],
 
         'Djibouti_adm0': [L.geoJson.ajax('assets/Djibouti_adm0.geojson', {
             color: 'red',
@@ -353,16 +350,17 @@
 
         'Health_Facilites': [L.geoJson.ajax('assets/HF.geojson', {
             //color: 'red',
-            //weight: 4
-		style: function(feature) {
-		return {
-			//iconUrl: '<i class="fa fa-medkit"style="font-size:20px;color:#1d78c8;z-index: 1">'
+            //
+				style: function(feature) {
+			return {
+				//iconUrl: '<i class="fa fa-medkit"style="font-size:20px;color:#1d78c8;z-index: 1">'
 			popup: feature.properties.name + ' (' + feature.properties.state + ')',
 			iconAnchor: [8, 8],
 			iconUrl: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAA7VBMVEUAAAA/X39UVHFMZn9NXnRPX3RMW3VPXXNOXHJOXXNNXHNOXXFPXHNNXXFPXHFOW3NPXHNPXXJPXXFPXXNNXXFNW3NOXHJPW25PXXNRX3NSYHVSYHZ0fIx1fo13gI95hJR6go96g5B7hpZ8hZV9hpZ9h5d/iZiBi5ucoquepa+fpbGhqbSiqbXNbm7Ob2/OcHDOcXHOcnLPdHTQdXXWiIjXiorXjIzenp7eoKDgpKTgpaXgpqbks7TktLTktbXnubnr2drr5+nr6Ons29vs29zs6Ors6ert6uvt6uzu6uz18fH18fL68PD++/v+/Pw8gTaQAAAAFnRSTlMACAkKLjAylJWWmJmdv8HD19ja2/n6GaRWtgAAAMxJREFUGBkFwctqwkAUgOH/nMnVzuDGFhRKKVjf/226cKWbQgNVkphMzFz6fQJQlY0S/boCAqa1AMAwJwRjW4wtcxgS05gEa3HHOYipzxP9ZKot9tR5ZfIff7FetMQcf4tDVexNd1IKbbA+7S59f9mlZGmMVVdpXN+3gwh+RiGLAjkDGTQSjHfhes3OV0+CkXrdL/4gzVunxQ+DYZNvn+Mg6aav35GH8OJS/SUrVTw/9e4FtRvypsbPwmPMAto6AOC+ZASgLBpDmGMA/gHW2Vtk8HXNjQAAAABJRU5ErkJggg=='
-		};
-		}
-        })],
+			};
+	}
+})]
+       ,
 
         'Buildings_by_distance': [L.tileLayer('https://api.mapbox.com/styles/v1/lilili/cjkjs92nl4xts2rpktn94y4nh/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibGlsaWxpIiwiYSI6ImNqamZiczF1czA1bGIzcHAwN2J5NndyaG4ifQ.V5VP-UiOg5Uz8BQK_VqLpg', {
             id: 'mapbox.Buildings_by_distance'
@@ -384,7 +382,8 @@
         Djibouti_Locating_Stu: {lat: 11.870, lng: 42.000,zoom: 9, layers: ['stu_region']},
         Djibouti_Locating_Was: {lat: 11.870, lng: 42.000,zoom: 9, layers: ['was_region']},
         Health_Service: {lat: 11.5799, lng: 43.1100, zoom: 14, layers: ['ESRI','Buildings_by_distance','Health_Facilites']},
-        Food_Security: {lat: 11.8077519, lng: 42.591565, zoom: 24, position: 'fullpage'},
+        <!--Food_Security: {lat: 11.8077519, lng: 42.591565, zoom: 24, position: 'fullpage'},-->
+		Food_Security: {lat: 11.80, lng: 42.5000,zoom: 9.3, layers: ['Djibouti_adm0']},
         Wash: {lat: 11.4900, lng: 43.000, zoom: 12.3,layers: ['ESRI','Buildings_by_distance_wells','Wells']},
         end: {lat: 11.8077519, lng: 42.591565, zoom: 24,position: 'fullpage'}
     };
