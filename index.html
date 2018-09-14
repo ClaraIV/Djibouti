@@ -337,11 +337,12 @@
         'Health_Facilites': [L.geoJson.ajax('assets/HF.geojson', {
 	style: function(feature) {
         return {
-            radius:6,
-            color: '#ffffff',
-            weight: 1,
-            opacity: 1,
-            fillOpacity: 0.7
+           // radius:6,
+           // color: '#ffffff',
+           // weight: 1,
+           // opacity: 1,
+           // fillOpacity: 0.7
+	    icon: '<i class="fa fa-tint"style="font-size:20px;color:#1d78c8;z-index: 1"></i>'
         }
     },
     pointToLayer: function (feature, latlng) {
