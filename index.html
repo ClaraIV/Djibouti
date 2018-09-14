@@ -43,6 +43,9 @@
         .desert-background-img{
             background: url("img/desert.jpg") no-repeat center fixed;
         }
+		.white-background-img{
+		 background: url(img/white.JPG) no-repeat center;
+		}
 		  #map { position:right; top:20px; bottom:0; width:70%; height: 95% }
     </style>
 
@@ -177,6 +180,7 @@
 
             <section data-scene="end">
                 <div class=" background-fullscreen-setting" >
+				<div class="white-background-img background-fullscreen-setting text-responsive text-center" style="background-size: cover">				
                     <div style="
                            position: left;
                            left: 0;
@@ -211,6 +215,7 @@
                             The primary technological innovation in this project is the use of programmatic and geospatial mapping to improve outreach to vulnerable and otherwise hard-to-reach households; assist with the tracking of children and mothers affected and at-risk of stunting, and map current and available health services. </p>
                     </div>
                 </div>
+				</div>
 
             </section>
         </div>
@@ -346,7 +351,7 @@
             }
         }), was_region_legend],
 
-      'Health_Facilites': [L.geoJson.ajax('assets/HF.geojson', {
+      'Health_Facilites': [L.geoJson.ajax('assets/HF.geojson', {onEachFeature:popUp},{
 		style: function(feature) {
         return {
             radius:6,
@@ -356,7 +361,6 @@
             fillOpacity: 0.7		 
         }
     },
-	,{onEachFeature:popUp},
     pointToLayer: function (feature, latlng) {
         return L.circleMarker(latlng)} 
 	})],
