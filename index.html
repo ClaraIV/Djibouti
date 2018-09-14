@@ -268,6 +268,12 @@
         '<i style="background: #ff1105; opacity: 0.9"></i><p><b>3.50+</b></p>'+
         '<i class="fa fa-tint"style="font-size:20px;color:#1d78c8;z-index: 1"></i><p><b>Well Points</b></p>';
 
+
+	
+
+
+
+
     // stu Color&Style
     function stu_setColor(density){
 
@@ -296,7 +302,6 @@
                 density > 0.10 ? '#fdcc8a' :
                 '#fef0d9';
     }
-	
     function was_style(feature) {
         return {
             fillColor: was_setColor(feature.properties.was),
@@ -307,20 +312,12 @@
             dashArray: '4'
         };
     }
-	
 	function well_style (feature){
 	return{
-	fillColor: '#ffffff',
-	 fillOpacity: 0.75,
-            weight: 1,
-            opacity: 0.9,
-            color: '#ffffff'
-	//icon: '<i class="fa fa-tint"style="font-size:20px;color:#1d78c8;z-index: 1">'
-	};
-	}
- 
+	icon: '<i class="fa fa-tint"style="font-size:20px;color:#1d78c8;z-index: 1">'};}
  
     var layers = {
+
         // Base Map Layers
         'ESRI': [L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}')],
         'satelite': [L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibGlsaWxpIiwiYSI6ImNqamZiczF1czA1bGIzcHAwN2J5NndyaG4ifQ.V5VP-UiOg5Uz8BQK_VqLpg', {
@@ -347,6 +344,7 @@
         }), stu_region_legend],
 
         'was_region': [L.geoJson.ajax('assets/Djibouti_adm2.geojson', {
+
             style: was_style,
             onEachFeature: function (feature, layer) {
                 layer.bindTooltip(feature.properties.was, {className: 'feature-label', permanent: false, direction: 'center'});
@@ -354,21 +352,23 @@
         }), was_region_legend],
 
         'Health_Facilites': [L.geoJson.ajax('assets/HF.geojson', {
-				style: well_style,
-				//onEachFeature: function(feature, layer){
-				//layer.bindTooltip(feature.properties.stu, {className: 'feature-label', permanent: false, direction: 'center'});
-				})],
-           // })],
+            //color: 'red',
+            //
+				style: function(feature) {
+			return {
+				icon: marker	};
+	}
+})]
+       ,
 
-		'Buildings_by_distance': [L.tileLayer('https://api.mapbox.com/styles/v1/lilili/cjkjs92nl4xts2rpktn94y4nh/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibGlsaWxpIiwiYSI6ImNqamZiczF1czA1bGIzcHAwN2J5NndyaG4ifQ.V5VP-UiOg5Uz8BQK_VqLpg', {
+        'Buildings_by_distance': [L.tileLayer('https://api.mapbox.com/styles/v1/lilili/cjkjs92nl4xts2rpktn94y4nh/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibGlsaWxpIiwiYSI6ImNqamZiczF1czA1bGIzcHAwN2J5NndyaG4ifQ.V5VP-UiOg5Uz8BQK_VqLpg', {
             id: 'mapbox.Buildings_by_distance'
-        })],
+        }),Buildings_by_distance],
 
         'Wells': [L.geoJson.ajax('assets/Wells.geojson', {
             //color: 'red',
             //weight: 4
         })],
-		
         'Buildings_by_distance_wells': [L.tileLayer('https://api.mapbox.com/styles/v1/lilili/cjknwptw68k582ss2xhvxswz9/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibGlsaWxpIiwiYSI6ImNqamZiczF1czA1bGIzcHAwN2J5NndyaG4ifQ.V5VP-UiOg5Uz8BQK_VqLpg', {
             id: 'mapbox.Buildings_by_distance'
         }),Sanitation_Coverage_legend]
