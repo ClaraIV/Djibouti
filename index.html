@@ -310,6 +310,15 @@
         };
     }
 	
+	function popUp(f,l){
+    var out = [];
+    if (f.properties){
+        for(key in f.properties){
+            out.push(key+": "+f.properties[key]);
+        }
+        l.bindPopup(out.join("<br />"));
+    }
+}
 	
 	//DECLARE LAYERS AND ASSIGN STYLES
  
@@ -321,7 +330,7 @@
             id: 'mapbox.satelite'
         })],
 
-        'Djibouti_adm0': [L.geoJson.ajax('assets/Djibouti_adm0.geojson', {
+        'Djibouti_adm0': [L.geoJson.ajax('assets/Djibouti_adm0.geojson',{onEachFeature:popUp},{
             color: 'red',
             weight: 5
         })],
@@ -347,12 +356,11 @@
             color: '#ffffff',
             weight: 1,
             opacity: 1,
-            fillOpacity: 0.7
-		 
+            fillOpacity: 0.7		 
         }
     },
     pointToLayer: function (feature, latlng) {
-        return L.Marker(latlng)} 
+        return L.CircleMarker(latlng)} 
 	})],
 
         'Buildings_by_distance': [L.tileLayer('https://api.mapbox.com/styles/v1/lilili/cjkjs92nl4xts2rpktn94y4nh/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibGlsaWxpIiwiYSI6ImNqamZiczF1czA1bGIzcHAwN2J5NndyaG4ifQ.V5VP-UiOg5Uz8BQK_VqLpg', {
