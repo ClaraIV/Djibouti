@@ -330,7 +330,7 @@
             id: 'mapbox.satelite'
         })],
 
-        'Djibouti_adm0': [L.geoJson.ajax('assets/Djibouti_adm0.geojson',{onEachFeature:popUp},{
+        'Djibouti_adm0': [L.geoJson.ajax('assets/Djibouti_adm0.geojson',{
             color: 'red',
             weight: 5
         })],
@@ -349,7 +349,7 @@
             }
         }), was_region_legend],
 
-      'Health_Facilites': [L.geoJson.ajax('assets/HF.geojson', {
+      'Health_Facilites': [L.geoJson.ajax('assets/HF.geojson',{onEachFeature:popUp}, {
 		style: function(feature) {
         return {
             radius:6,
@@ -360,14 +360,14 @@
         }
     },
     pointToLayer: function (feature, latlng) {
-        return L.CircleMarker(latlng)} 
+        return L.circleMarker(latlng)} 
 	})],
 
         'Buildings_by_distance': [L.tileLayer('https://api.mapbox.com/styles/v1/lilili/cjkjs92nl4xts2rpktn94y4nh/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibGlsaWxpIiwiYSI6ImNqamZiczF1czA1bGIzcHAwN2J5NndyaG4ifQ.V5VP-UiOg5Uz8BQK_VqLpg', {
             id: 'mapbox.Buildings_by_distance'
         }),Buildings_by_distance],
 
-        'Wells': [L.geoJson.ajax('assets/Wells.geojson', {
+        'Wells': [L.geoJson.ajax('assets/Wells.geojson',{onEachFeature:popUp}, {
             color: 'red',
             weight: 4
         })],
