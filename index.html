@@ -43,7 +43,7 @@
         .desert-background-img{
             background: url("img/desert.jpg") no-repeat center fixed;
         }
-		  #map { position:right; top:0; bottom:0; width:70%; }
+		  #map { position:right; top:20px; bottom:0; width:70%; height: 95% }
     </style>
 
     <!--add required libraries-->
@@ -150,8 +150,6 @@
                     fully immunized by their first birthday ranges from 70% to 80% in urban areas and from 40% to 50% in rural areas.</p>
 					</br>
                     <img src="img/Women.png" class="img-responsive" alt="responsive image" style= "margin-left: auto;margin-right: auto;">
-
-              
             </section>
 			
 			<section data-scene="Food_Security">
@@ -163,7 +161,6 @@
                         <p style="font-size:18px;text-align: justify;">As a result, an alarmingly low percentage of children are consuming a minimum acceptable diet (i.e., at least four food groups and three meals per day) and getting the right nutrients to
                             grow and thrive.</p></br>
                     <img src="img/arid2.JPG" class="img-responsive" alt="responsive image" style= "margin-left: auto;margin-right: auto;">
-
                 </p>
             </section>
            
@@ -181,16 +178,16 @@
             <section data-scene="end">
                 <div class=" background-fullscreen-setting" >
                     <div style="
-                           position: absolute;
-                           /*left: 0;*/
-                           /*right: 0;*/
-                           /*bottom: 30%;*/
-                           top: 0;
+                           position: left;
+                           left: 0;
+                           right: 0;
+                           bottom: 15%;
+                           top: 15%;
                            left: 15%;
                            right: 15%;
-                           /*width: 100%;*/
-                           /*height: 100%;*/">
-                        <video autoplay muted loop style=" width: 100%; overflow:hidden;z-index: -1">
+                           width: 80%;
+                           height: 80%;">
+                        <video autoplay muted loop style=" width: 50%; overflow:hidden;z-index: -1">
                             <source src="assets/Stunting.mp4" type="video/mp4">
                         </video>
 
@@ -349,7 +346,7 @@
             }
         }), was_region_legend],
 
-      'Health_Facilites': [L.geoJson.ajax('assets/HF.geojson',{onEachFeature:popUp}, {
+      'Health_Facilites': [L.geoJson.ajax('assets/HF.geojson', {
 		style: function(feature) {
         return {
             radius:6,
@@ -359,6 +356,7 @@
             fillOpacity: 0.7		 
         }
     },
+	,{onEachFeature:popUp},
     pointToLayer: function (feature, latlng) {
         return L.circleMarker(latlng)} 
 	})],
