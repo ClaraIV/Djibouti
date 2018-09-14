@@ -312,9 +312,14 @@
             dashArray: '4'
         };
     }
-	function well_style (feature){
-	return{
-	icon: '<i class="fa fa-tint"style="font-size:20px;color:#1d78c8;z-index: 1">'};}
+	
+	<!--function well_style (feature){	return{	icon: '<i class="fa fa-tint"style="font-size:20px;color:#1d78c8;z-index: 1">'};} -->
+	
+	var myStyle = {
+        "color": "#ff7800",
+        "weight": 5,
+        "opacity": 0.65
+    };
  
     var layers = {
 
@@ -324,19 +329,12 @@
             id: 'mapbox.satelite'
         })],
 
-        // Data Layers
-      //  'HF': [L.geoJson.ajax('assets/HF.geojson', {
-            //color: 'orange',
-            //weight: 5
-     //   }), stu_was_national_legend],
-
         'Djibouti_adm0': [L.geoJson.ajax('assets/Djibouti_adm0.geojson', {
             color: 'red',
             weight: 5
         })],
 
         'stu_region': [L.geoJson.ajax('assets/Djibouti_adm2.geojson', {
-
             style: stu_style,
             onEachFeature: function (feature, layer) {
                 layer.bindTooltip(feature.properties.stu, {className: 'feature-label', permanent: false, direction: 'center'});
@@ -344,7 +342,6 @@
         }), stu_region_legend],
 
         'was_region': [L.geoJson.ajax('assets/Djibouti_adm2.geojson', {
-
             style: was_style,
             onEachFeature: function (feature, layer) {
                 layer.bindTooltip(feature.properties.was, {className: 'feature-label', permanent: false, direction: 'center'});
@@ -352,18 +349,18 @@
         }), was_region_legend],
 
         'Health_Facilites': [L.geoJson.ajax('assets/HF.geojson', {
-            color: 'red'            
-})]
-       ,
+
+				style: myStyle })],
 
         'Buildings_by_distance': [L.tileLayer('https://api.mapbox.com/styles/v1/lilili/cjkjs92nl4xts2rpktn94y4nh/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibGlsaWxpIiwiYSI6ImNqamZiczF1czA1bGIzcHAwN2J5NndyaG4ifQ.V5VP-UiOg5Uz8BQK_VqLpg', {
             id: 'mapbox.Buildings_by_distance'
         }),Buildings_by_distance],
 
         'Wells': [L.geoJson.ajax('assets/Wells.geojson', {
-            //color: 'red',
-            //weight: 4
+            color: 'red',
+            weight: 4
         })],
+		
         'Buildings_by_distance_wells': [L.tileLayer('https://api.mapbox.com/styles/v1/lilili/cjknwptw68k582ss2xhvxswz9/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibGlsaWxpIiwiYSI6ImNqamZiczF1czA1bGIzcHAwN2J5NndyaG4ifQ.V5VP-UiOg5Uz8BQK_VqLpg', {
             id: 'mapbox.Buildings_by_distance'
         }),Sanitation_Coverage_legend]
