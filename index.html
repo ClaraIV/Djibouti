@@ -268,12 +268,6 @@
         '<i style="background: #ff1105; opacity: 0.9"></i><p><b>3.50+</b></p>'+
         '<i class="fa fa-tint"style="font-size:20px;color:#1d78c8;z-index: 1"></i><p><b>Well Points</b></p>';
 
-
-	
-
-
-
-
     // stu Color&Style
     function stu_setColor(density){
 
@@ -302,6 +296,7 @@
                 density > 0.10 ? '#fdcc8a' :
                 '#fef0d9';
     }
+	
     function was_style(feature) {
         return {
             fillColor: was_setColor(feature.properties.was),
@@ -312,10 +307,19 @@
             dashArray: '4'
         };
     }
-
-    var marker = '<i class="fa fa-tint"style="font-size:20px;color:#1d78c8;z-index: 1">';
+	
+	function well_style (feature){
+	return{
+	 fillOpacity: 0.75,
+            weight: 1,
+            opacity: 0.9,
+            color: '#ffffff'
+	//icon: '<i class="fa fa-tint"style="font-size:20px;color:#1d78c8;z-index: 1">'
+	};
+	}
+ 
+ 
     var layers = {
-
         // Base Map Layers
         'ESRI': [L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}')],
         'satelite': [L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibGlsaWxpIiwiYSI6ImNqamZiczF1czA1bGIzcHAwN2J5NndyaG4ifQ.V5VP-UiOg5Uz8BQK_VqLpg', {
@@ -342,7 +346,6 @@
         }), stu_region_legend],
 
         'was_region': [L.geoJson.ajax('assets/Djibouti_adm2.geojson', {
-
             style: was_style,
             onEachFeature: function (feature, layer) {
                 layer.bindTooltip(feature.properties.was, {className: 'feature-label', permanent: false, direction: 'center'});
@@ -350,13 +353,13 @@
         }), was_region_legend],
 
         'Health_Facilites': [L.geoJson.ajax('assets/HF.geojson', {
-			style: function(feature) {
-			return { icon:marker	};
-	}
-})]
-       ,
+				style: well_style,
+				onEachFeature: function(feature, layer){
+				layer.bindTooltip(feature.properties.stu, {className: 'feature-label', permanent: false, direction: 'center'});
+				}
+            }), Sanitation_Coverage_legend],
 
-        'Buildings_by_distance': [L.tileLayer('https://api.mapbox.com/styles/v1/lilili/cjkjs92nl4xts2rpktn94y4nh/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibGlsaWxpIiwiYSI6ImNqamZiczF1czA1bGIzcHAwN2J5NndyaG4ifQ.V5VP-UiOg5Uz8BQK_VqLpg', {
+		'Buildings_by_distance': [L.tileLayer('https://api.mapbox.com/styles/v1/lilili/cjkjs92nl4xts2rpktn94y4nh/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibGlsaWxpIiwiYSI6ImNqamZiczF1czA1bGIzcHAwN2J5NndyaG4ifQ.V5VP-UiOg5Uz8BQK_VqLpg', {
             id: 'mapbox.Buildings_by_distance'
         }),Buildings_by_distance],
 
@@ -364,6 +367,7 @@
             //color: 'red',
             //weight: 4
         })],
+		
         'Buildings_by_distance_wells': [L.tileLayer('https://api.mapbox.com/styles/v1/lilili/cjknwptw68k582ss2xhvxswz9/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibGlsaWxpIiwiYSI6ImNqamZiczF1czA1bGIzcHAwN2J5NndyaG4ifQ.V5VP-UiOg5Uz8BQK_VqLpg', {
             id: 'mapbox.Buildings_by_distance'
         }),Sanitation_Coverage_legend]
@@ -376,7 +380,6 @@
         Djibouti_Locating_Stu: {lat: 11.870, lng: 42.000,zoom: 9, layers: ['stu_region']},
         Djibouti_Locating_Was: {lat: 11.870, lng: 42.000,zoom: 9, layers: ['was_region']},
         Health_Service: {lat: 11.5799, lng: 43.1100, zoom: 14, layers: ['ESRI','Buildings_by_distance','Health_Facilites']},
-        <!--Food_Security: {lat: 11.8077519, lng: 42.591565, zoom: 24, position: 'fullpage'},-->
 		Food_Security: {lat: 11.80, lng: 42.5000,zoom: 9.3, layers: ['Djibouti_adm0']},
         Wash: {lat: 11.4900, lng: 43.000, zoom: 12.3,layers: ['ESRI','Buildings_by_distance_wells','Wells']},
         end: {lat: 11.8077519, lng: 42.591565, zoom: 24,position: 'fullpage'}
