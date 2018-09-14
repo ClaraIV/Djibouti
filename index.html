@@ -229,7 +229,6 @@
         // Create Legend Contents in html format
     var stu_was_national_legend = '<i style="background: orange; opacity: 0.5"></i><p><b>Stunting&Wasting Rate</b></p>';
 
-
     var stu_region_legend = '<h7>Stunting Rate</h7></br></br>'+
         '<i style="background: #b30000"></i><p><b>45% +</p>'+
         '<i style="background: #e34a33"></i><p><b>35% - 45%</p>'+
@@ -243,7 +242,6 @@
         '<i style="background: #fdcc8a"></i><p><b>10% - 16%</p>'+
         '<i style="background: #fef0d9"></i><p><b>0% - 10%</p>';
 
-
     var Buildings_by_distance =
         '<h7>Distance to Health Facilities (km)</h7></br></br>'+
         '<i style="background: #059931; opacity: 0.9"></i><p><b>0.1</p>'+
@@ -256,7 +254,6 @@
         '<i style="background: #ff1105; opacity: 0.9"></i><p><b>3.50+</b></p>'+
         '<i class="fa fa-medkit"style="font-size:20px;color:#1d78c8;z-index: 1"></i><p><b>Health Facilities</b></p>';
 
-
     var Sanitation_Coverage_legend= '<h7>Distance to Well Points (km)</h7></br></br>'+
         '<i style="background: #059931; opacity: 0.9"></i><p><b>0.1</p>'+
         '<i style="background: #2CA01C; opacity: 0.9"></i><p><b>0.10 - 0.25</b></p>' +
@@ -268,7 +265,8 @@
         '<i style="background: #ff1105; opacity: 0.9"></i><p><b>3.50+</b></p>'+
         '<i class="fa fa-tint"style="font-size:20px;color:#1d78c8;z-index: 1"></i><p><b>Well Points</b></p>';
 
-    // stu Color&Style
+	
+    // DECLARE STYLES FOR EACH LAYER
     function stu_setColor(density){
 
         return  density > 0.45 ? '#b30000' :
@@ -277,6 +275,7 @@
                 density > 0.15 ? '#fdcc8a' :
                 '#fef0d9';
     }
+	
     function stu_style(feature) {
         return {
             fillColor: stu_setColor(feature.properties.stu),
@@ -288,7 +287,6 @@
         };
     }
 
-    // was Color&Style
     function was_setColor(density){
 
         return  density > 0.25 ? '#e34a33' :
@@ -307,7 +305,11 @@
         };
     }
 	
-	var layers = {
+	
+	
+	//DECLARE LAYERS AND ASSIGN STYLES
+ 
+    var layers = {
 
         // Base Map Layers
         'ESRI': [L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}')],
@@ -334,15 +336,15 @@
             }
         }), was_region_legend],
 
-        'Health_Facilites': [L.geoJson.ajax('assets/HF.geojson', {
-	style: function(feature) {
+      'Health_Facilites': [L.geoJson.ajax('assets/HF.geojson', {
+		style: function(feature) {
         return {
            // radius:6,
            // color: '#ffffff',
            // weight: 1,
            // opacity: 1,
-           // fillOpacity: 0.7	  
-	   icon: L.AwesomeMarkers.icon({icon: 'fa-medkit', prefix: 'fa', markerColor: '#1d78c8', iconColor: '#1d78c8'})
+           // fillOpacity: 0.7
+		   icon: L.AwesomeMarkers.icon({icon: 'fa-medkit', prefix: 'fa', markerColor: '#1d78c8', iconColor: '#1d78c8'})
         }
     },
     pointToLayer: function (feature, latlng) {
