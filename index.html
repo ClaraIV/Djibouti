@@ -14,6 +14,10 @@
 
     <!--use a better font for this web map-->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	
+	<link rel="stylesheet" href="css/leaflet.awesome-markers.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+	
 
     <link rel="stylesheet" href="css/storymap.css">
     <!--add favicon for the web page-->
@@ -48,6 +52,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.min.js"></script>
     <script src="https://www.gstatic.com/charts/loader.js"></script>
+	<script src="js/leaflet.awesome-markers.js"></script>
     <!-- Line&Bar Chart-->
     <script src="js/LineChart.js"></script>
     <script src="js/BarChart.js"></script>
@@ -306,7 +311,6 @@
     }
 	
 	
-	
 	//DECLARE LAYERS AND ASSIGN STYLES
  
     var layers = {
@@ -339,16 +343,16 @@
       'Health_Facilites': [L.geoJson.ajax('assets/HF.geojson', {
 		style: function(feature) {
         return {
-           // radius:6,
-           // color: '#ffffff',
-           // weight: 1,
-           // opacity: 1,
-           // fillOpacity: 0.7
-		   icon: L.AwesomeMarkers.icon({icon: 'fa-medkit', prefix: 'fa', markerColor: '#1d78c8', iconColor: '#1d78c8'})
+            radius:6,
+            color: '#ffffff',
+            weight: 1,
+            opacity: 1,
+            fillOpacity: 0.7
+		 
         }
     },
     pointToLayer: function (feature, latlng) {
-        return L.marker(latlng)} 
+        return L.Marker(latlng)} 
 	})],
 
         'Buildings_by_distance': [L.tileLayer('https://api.mapbox.com/styles/v1/lilili/cjkjs92nl4xts2rpktn94y4nh/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibGlsaWxpIiwiYSI6ImNqamZiczF1czA1bGIzcHAwN2J5NndyaG4ifQ.V5VP-UiOg5Uz8BQK_VqLpg', {
