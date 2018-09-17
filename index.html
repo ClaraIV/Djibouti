@@ -343,6 +343,10 @@
             color: '#757575',
             weight: 1
         })],
+		'Djibouti_adm0_m': [L.geoJson.ajax('assets/Djibouti_adm0.geojson',{
+            color: '#9d9d9d',
+            weight: 1
+        })],
 		
         'stu_region': [L.geoJson.ajax('assets/Djibouti_adm2.geojson', {
             style: stu_style,
@@ -412,7 +416,7 @@
         Djibouti_Locating_Was: {lat: 11.870, lng: 42.000,zoom: 9, layers: ['was_region']},
         Health_Service: {lat: 11.5799, lng: 43.1100, zoom: 14, layers: ['ESRI','Buildings_by_distance','Health_Facilites']},
 		Food_Security: {lat: 11.870, lng: 42.5000,zoom: 9, layers: ['Djibouti_adm0_n', 'Cropland']},
-        Wash: {lat: 11.870, lng: 42.500, zoom: 9,layers: ['ESRI','Djibouti_adm0_n','Buildings_by_distance_wells','Wells']},
+        Wash: {lat: 11.870, lng: 42.500, zoom: 9,layers: ['ESRI','Djibouti_adm0_m','Buildings_by_distance_wells','Wells']},
         end: {lat: 11.8077519, lng: 42.591565, zoom: 24,position: 'fullpage'}
     };
 
