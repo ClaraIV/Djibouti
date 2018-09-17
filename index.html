@@ -174,7 +174,7 @@
                 <p style="font-size:18px;">Only 47% of the population has access to improved sanitation facilities (5% in rural areas);
                     and only 65% of the rural population has access to improved water sources..</p>
                 <p style="font-size:18px;">Access to improved sanitation facilities ranges from 60% in urban areas to just 5% in rural areas .</p></br>
-                <img src="img/water.png" class="img-responsive" alt="responsive image" alt-text="Wash">
+                <img src="img/water.png" class="img-responsive" alt="responsive image" style= "margin-left: auto;margin-right: auto;">
                 <div id="Sanitation" style="width: 500px; height: 300px"></div>
             </section>
 
@@ -358,7 +358,7 @@
             }
         }), was_region_legend],
 
-      'Health_Facilites': [L.geoJson.ajax('assets/HF.geojson',{
+      'Health_Facilites': [L.geoJson.ajax('assets/HF.geojson', {
 		style: function(feature) {
         return {
             radius:6,
@@ -373,15 +373,26 @@
     pointToLayer: function (feature, latlng) {
         return L.circleMarker(latlng)} 
 	})],
-	    
+
         'Buildings_by_distance': [L.tileLayer('https://api.mapbox.com/styles/v1/lilili/cjkjs92nl4xts2rpktn94y4nh/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibGlsaWxpIiwiYSI6ImNqamZiczF1czA1bGIzcHAwN2J5NndyaG4ifQ.V5VP-UiOg5Uz8BQK_VqLpg', {
             id: 'mapbox.Buildings_by_distance'
         }),Buildings_by_distance],
 
         'Wells': [L.geoJson.ajax('assets/Wells1.geojson',{onEachFeature:popUp}, {
-            color: 'red',
-            weight: 4
-        })],
+           style: function(feature) {
+        return {
+            radius:6,
+			fillColor:'#45a2e4',
+            color: '#45a2e4',
+            weight: 1,
+            opacity: 1,
+            fillOpacity: 0.7		 
+        }
+    },
+	onEachFeature:popUp,
+    pointToLayer: function (feature, latlng) {
+        return L.circleMarker(latlng)} 
+	})],
 		
 		'Cropland':[L.geoJson.ajax('assets/cropland.geojson',{
 		            color: '#fc8d59',
