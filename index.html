@@ -344,8 +344,8 @@
             weight: 1
         })],
 		'Djibouti_adm0_m': [L.geoJson.ajax('assets/Djibouti_adm0.geojson',{
-            color: '#9d9d9d',
-            weight: 1
+            color: '#fc8d59',
+            weight: 2
         })],
 		
         'stu_region': [L.geoJson.ajax('assets/Djibouti_adm2.geojson', {
@@ -411,9 +411,9 @@
     var scenes = {
         cover: {lat: 11.8077519, lng: 42.591565, zoom: 24, position: 'fullpage'},
         overview: {lat: 11.8077519, lng: 42.591565, zoom: 24, position: 'fullpage'},
-        Problem_Stunting: {lat: 11.870, lng: 42.000,zoom: 9, layers: ['Djibouti_adm0']},
-        Djibouti_Locating_Stu: {lat: 11.870, lng: 42.000,zoom: 9, layers: ['stu_region']},
-        Djibouti_Locating_Was: {lat: 11.870, lng: 42.000,zoom: 9, layers: ['was_region']},
+        Problem_Stunting: {lat: 11.870, lng: 42.500, zoom: 9, layers: ['Djibouti_adm0']},
+        Djibouti_Locating_Stu: {lat: 11.870, lng: 42.500, zoom: 9, layers: ['stu_region']},
+        Djibouti_Locating_Was: {lat: 11.870, lng: 42.500, zoom: 9, layers: ['was_region']},
         Health_Service: {lat: 11.5799, lng: 43.1100, zoom: 14, layers: ['ESRI','Buildings_by_distance','Health_Facilites']},
 		Food_Security: {lat: 11.870, lng: 42.5000,zoom: 9, layers: ['Djibouti_adm0_n', 'Cropland']},
         Wash: {lat: 11.870, lng: 42.500, zoom: 9,layers: ['ESRI','Djibouti_adm0_m','Buildings_by_distance_wells','Wells']},
