@@ -358,9 +358,7 @@
             }
         }), was_region_legend],
 
-      'Health_Facilites': [L.geoJson.ajax('assets/HF.geojson', 
-					  <!-- {onEachFeature:popUp},-->
-					  {
+      'Health_Facilites': [L.geoJson.ajax('assets/HF.geojson',{
 		style: function(feature) {
         return {
             radius:6,
@@ -373,7 +371,7 @@
     },
     pointToLayer: function (feature, latlng) {
         return L.circleMarker(latlng)} 
-	})],
+	},{onEachFeature:popUp})],
 
         'Buildings_by_distance': [L.tileLayer('https://api.mapbox.com/styles/v1/lilili/cjkjs92nl4xts2rpktn94y4nh/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibGlsaWxpIiwiYSI6ImNqamZiczF1czA1bGIzcHAwN2J5NndyaG4ifQ.V5VP-UiOg5Uz8BQK_VqLpg', {
             id: 'mapbox.Buildings_by_distance'
