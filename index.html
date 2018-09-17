@@ -240,6 +240,10 @@
         '<i style="background: #fc8d59"></i><p><b>25% - 35%</p>'+
         '<i style="background: #fdcc8a"></i><p><b>15% - 25%</p>'+
         '<i style="background: #fef0d9"></i><p><b>0% - 15%</p>';
+		
+	var cropland_legend = '<h7>Land Use - Land Cover (2016)</h7></br></br>'+
+        '<i style="background: #b30000"></i><p><b>Cropland</p>';
+
 
     var was_region_legend ='<h7>Wasting Rate</h7></br></br>'+
         '<i style="background: #e34a33"></i><p><b>25% +</p>'+
@@ -372,6 +376,11 @@
             weight: 4
         })],
 		
+		'Cropland':[L.geoJson.ajax('assets/cropland.geojson',{
+		            color: 'red',
+            weight: 5	 
+        }),cropland_legend],
+		
         'Buildings_by_distance_wells': [L.tileLayer('https://api.mapbox.com/styles/v1/lilili/cjknwptw68k582ss2xhvxswz9/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibGlsaWxpIiwiYSI6ImNqamZiczF1czA1bGIzcHAwN2J5NndyaG4ifQ.V5VP-UiOg5Uz8BQK_VqLpg', {
             id: 'mapbox.Buildings_by_distance'
         }),Sanitation_Coverage_legend]
@@ -384,7 +393,7 @@
         Djibouti_Locating_Stu: {lat: 11.870, lng: 42.000,zoom: 9, layers: ['stu_region']},
         Djibouti_Locating_Was: {lat: 11.870, lng: 42.000,zoom: 9, layers: ['was_region']},
         Health_Service: {lat: 11.5799, lng: 43.1100, zoom: 14, layers: ['ESRI','Buildings_by_distance','Health_Facilites']},
-		Food_Security: {lat: 11.80, lng: 42.5000,zoom: 9.3, layers: ['Djibouti_adm0']},
+		Food_Security: {lat: 11.80, lng: 42.5000,zoom: 9.3, layers: ['Djibouti_adm0', 'Cropland']},
         Wash: {lat: 11.4900, lng: 43.000, zoom: 12.3,layers: ['ESRI','Buildings_by_distance_wells','Wells']},
         end: {lat: 11.8077519, lng: 42.591565, zoom: 24,position: 'fullpage'}
     };
