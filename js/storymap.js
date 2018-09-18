@@ -13,10 +13,9 @@
             scale: false,
             navwidget: false,
             createMap: function () {
-                var map = L.map('map', {
-                    zoomControl: false
-                }).setView([44, -120], 7);
-                L.tileLayer('http://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}@2x.png');
+                var map = L.map('map', {zoomControl: false, scrollWheelZoom: false}).setView([44, -120], 8);
+				L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}', {maxZoom: 16}).addTo(map);
+				L.control.zoom({ position: 'bottomright'}).addTo(map);
                 return map;
             }
         };
@@ -45,7 +44,6 @@
         }
 
         function highlightTopPara(sections, top) {
-
             var distances = $.map(sections, function (element) {
                 var dist = getDistanceToTop(element, top);
                 return {
