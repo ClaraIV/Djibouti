@@ -19,21 +19,11 @@ function drawChart() {
         colors: ['#1b9e77', '#d95f02']
     };
 
-
-
-
     var chart = new google.charts.Bar(document.getElementById('Sanitation'));
 
     chart.draw(data, google.charts.Bar.convertOptions(options));
-
-//     var btns = document.getElementById('btn-group');
-//
-//     btns.onclick = function (e) {
-//
-//         if (e.target.tagName === 'BUTTON') {
-//             options.hAxis.format = e.target.id === 'none' ? '' : e.target.id;
-//             chart.draw(data, google.charts.Bar.convertOptions(options));
-//         }
-//     }
 }
 
+$(window).resize(function(){
+  drawChart();
+});

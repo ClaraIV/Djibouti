@@ -52,3 +52,6 @@ function drawAxisTickColors() {
     var chart = new google.visualization.BarChart(document.getElementById('Serve_Was'));
     chart.draw(data, options);
 }
+$(window).resize(function(){
+  drawAxisTickColors();
+});

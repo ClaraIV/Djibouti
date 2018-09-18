@@ -49,7 +49,9 @@ function drawAxisTickColors() {
     var chart = new google.visualization.BarChart(document.getElementById('Serve_Stu'));
     chart.draw(data, options);
 }
-
+$(window).resize(function(){
+  drawAxisTickColors();
+});
 
 
 

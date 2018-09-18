@@ -20,7 +20,10 @@ function drawChart() {
         legend: { position: 'bottom' }
     };
 
-    var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+    var chart = new google.visualization.LineChart(document.getElementById('LineChart'));
 
     chart.draw(data, options);
 }
+$(window).resize(function(){
+  drawChart();
+});
