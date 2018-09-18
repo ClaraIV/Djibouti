@@ -15,7 +15,7 @@ function drawChart() {
         },
         bars: 'horizontal', // Required for Material Bar Charts.
         hAxis: {format: 'decimal'},
-        height: 280,
+        height: 180,
         colors: ['#1b9e77', '#d95f02']
     };
 
