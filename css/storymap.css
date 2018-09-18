@@ -194,6 +194,7 @@ video {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+
 }
 
 @media (min-width: 768px) {
@@ -213,7 +214,7 @@ video {
     .main {
         padding-right: 40px;
         padding-left: 40px;
-        width: 600px;
+        width: 30%;
     }
 }
 
@@ -234,11 +235,77 @@ video {
     .main {
         padding-right: 10px;
         padding-left: 10px;
-        width: 100%
+        width: 30%
     }
     .viewing {
         background: rgba(221, 221, 221, 0.6);
     }
+}
+.chart {
+  width: 100%; 
+  min-height: 450px;
+}
+#title {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    background-color: white;
+    width: 30vw;
+    min-width: 300px;
+    z-index: 100;
+    margin: 0px;
+    padding: 0px;
+}
+#contents {
+    padding: 0%;
+    width: 100%;
+    margin-top: 0px; /*Adjust if Title header needs more space */
+    height: 100%; /* Adjust to fit max Description length, one setting for all; alternative is 100% */
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+
+#contents .space-at-the-top {
+    height: 30px;
+    margin: 0px;
+}
+#narration {
+    position: absolute;
+    width: 30vw;
+    min-width: 300px;
+    left: 0px;
+    height: 100vh;
+    /*overflow: auto;*/
+    z-index: 50;
+    background: rgba(254,254,254, 1.0); /* to apply opacity background only. */
+}
+media only screen and (max-device-width: 480px) {
+  ::-webkit-scrollbar {
+      display: none;
+  }
+  #map {
+    width: 100vw;
+  }
+  #title {
+    width: 80%;
+    left: 10%;
+    min-width: 0;
+  }
+  #narration {
+    width: 80%;
+    min-width: 0;
+    left: 10%;
+    background: none;
+    opacity: 0.8;
+  }
+  .description {
+      padding: 0;
+      padding-bottom: 10px;
+  }
+  .leaflet-control-container {
+      display: none;
+  }
 }
 
 .breakpoint-current {
@@ -255,6 +322,17 @@ section {
     border-radius: 10px;
     background: #ccc;
     opacity: 0;
+}
+/*.section {padding: 0%;
+    width: 100%;
+    margin-top: 10px; /*Adjust if Title header needs more space */
+    /*height: 80%; /* Adjust to fit max Description length, one setting for all; alternative is 100% */
+   /* overflow-y: scroll;
+	overflow-x: hidden;
+}*/
+
+.row {
+  margin:0 !important;
 }
 
 .arrow-down {
@@ -309,13 +387,13 @@ section {
 
 .legend img {
     width: 16px;
-    height: 16px;
+    height: 20px;
     margin-right: 3px;
     float: left;
 }
 
 .legend p {
-    font-size: 10px;
+    font-size: 12px;
     line-height: 16px;
     margin: 0;
 }
@@ -330,4 +408,25 @@ section {
     box-shadow: 0 0 2px rgba(98, 16, 0, 0.91);
     width: 0%;
 }
+.WB-logo-img {
+            background: url(img/worldbank.png) no-repeat ;
+			position: fixed;
+            left: 70%;
+            z-index: 1;
+            width: 20%;
+            height: auto;
 
+        }
+.start-background-img {
+            background: url(img/Banner.jpg) no-repeat center;
+        }
+.overview-background-img{
+            background: url(img/li.jpeg) no-repeat center fixed;
+        }
+.desert-background-img{
+            background: url("img/desert.jpg") no-repeat center fixed;
+        }
+.white-background-img{
+		 background: url(img/white.JPG) no-repeat center;
+		}
+#map { position:right; top:3%; bottom:3%; width:70%;}
