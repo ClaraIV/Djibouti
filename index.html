@@ -4,7 +4,6 @@
     <title>Djibouti Stunting</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -19,11 +18,28 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 	
 
-    <link rel="stylesheet" href="css/storymap.css">
+    <link rel="stylesheet" type="text/css" href="css/storymap.css">
     <!--add favicon for the web page-->
     <link rel="shortcut icon" href="img/Djibouti.ico" type="image/x-icon">
-    <!-- style of start backgound picture -->
-    <style>
+    <!--add required libraries-->
+    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+	  <script src="https://www.google.com/jsapi"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.min.js"></script>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+	<script src="js/leaflet.awesome-markers.js"></script>
+    <!-- Line&Bar Chart-->
+    <script src="js/LineChart.js"></script>
+    <script src="js/BarChart.js"></script>
+    <script src="js/Serve_Stu.js"></script>
+    <script src="js/Serve_Was.js"></script>
+
+    <!--story map plugin-->
+    <script src="js/storymap.js"></script>
+
+	    <!-- style of start backgound picture -->
+ <style>
         .WB-logo-img {
             background: url(img/worldbank.png) no-repeat ;
 			position: fixed;
@@ -46,31 +62,12 @@
 		.white-background-img{
 		 background: url(img/white.JPG) no-repeat center;
 		}
-		  #map { position:right; top:20px; bottom:0; width:70%; height: 95% }
+		  #map { position:right; top:3%; bottom:3%; width:70%;}
     </style>
-
-    <!--add required libraries-->
-    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.min.js"></script>
-    <script src="https://www.gstatic.com/charts/loader.js"></script>
-	<script src="js/leaflet.awesome-markers.js"></script>
-    <!-- Line&Bar Chart-->
-    <script src="js/LineChart.js"></script>
-    <script src="js/BarChart.js"></script>
-    <script src="js/Serve_Stu.js"></script>
-    <script src="js/Serve_Was.js"></script>
-
-    <!--story map plugin-->
-    <script src="js/storymap.js"></script>
-
-    <!-- mini globle map -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.19/topojson.min.js"></script>
-    <script src="js/globeminimap.js"></script>
 </head>
 <body>
+
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-6 col-md-4 main">
@@ -105,34 +102,31 @@
 
             <section data-scene="Problem_Stunting">
                 <h2>Problem of Stunting</h2></br>
-
                 <p style="font-size:18px;">Stunting is a major public health problem in Djibouti.
                     <strong>The current level of stunting in Djibouti is <font color="#D85B3C">30 percent</font></strong>, which exceeds the WHO severity thresholds of <font color="#5676B8">20 percent</font>.
                     The main causes of stunting in Djibouti include low access to and utilization to of basic health services,
                     high levels of food insecurity and poor environmental health (water, sanitation and hygiene). </p>
 					</br>
-					<body>
-                <div id="curve_chart" style="width: 500px; height: 380px"></div>
-                </body>
+					 <div class="clearfix"></div>  
+					<div id="LineChart" class="chart"></div>
+  
+				<!--<div id="curve_chart" class="img-responsive" alt="responsive image" style= "margin-left: auto;margin-right: auto;"></div>                
 				<!--<img src="img/StuntingCycle.jpg" class="img-responsive" alt="responsive image" style= "margin-left: auto;margin-right: auto;">
                 </br>
 				</br>
 				<img src="img/stuntingcosts.jpg" class="img-responsive" alt="responsive image" style= "margin-left: auto;margin-right: auto;">-->
-                </br>
-                
-				
+                </br>             				
             </section>
 
             <section data-scene="Djibouti_Locating_Stu">
                 <h2>Stunting</h2></br>
                 <p style="font-size:18px;"><strong>All of the regions in Djibouti have critical levels of stunting</strong> (i.e. over 30 percent).
                     The prevalence of stunting is <strong>higher among rural residents</strong>, compared to their urban counterparts (42.3% vs. 30.0%). 
-                    <strong>Obock, Dikhil and Tadjourah</strong> regions have the highest stunting rates at 45.9%, 44.2% and 40.8%, respectively.</p></br>
-					
+                    <strong>Obock, Dikhil and Tadjourah</strong> regions have the highest stunting rates at 45.9%, 44.2% and 40.8%, respectively.</p></br>					
 				</br>
-                <body>
-                <div id="Serve_Stu" style="width: 500px; height: 380px"></div>
-                </body>
+                 <div class="clearfix"></div>  
+					<div id="Serve_Stu" class="chart"></div>					
+                <!--<div id="Serve_Stu" style="width: 500px; height: 380px"></div>-->                
             </section>
 
             <section data-scene="Djibouti_Locating_Was">
@@ -140,9 +134,10 @@
                 <p style="font-size:18px;"><strong>The current level of wasting in Djibouti is 17.8 percent</strong>, which exceeds the WHO severity thresholds of 5 percent. 
                     </br></br>
                     <strong>All regions in Djibouti have critical levels of wasting (i.e. over 10 percent). Obock, Djibouti City and Tadjourah </strong>regions have the highest wasting rates at 25.7%, 17.9% and 16.4%, respectively. </p>
-                <body>
-                <div id="Serve_Was" style="width: 500px; height: 380px"></div>
-                </body>
+                 <div class="clearfix"></div>  
+					<div id="Serve_Was" class="chart"></div>
+             <!--   <div id="Serve_Was" style="width: 500px; height: 380px"></div>-->
+            
 
             </section>
 
@@ -176,7 +171,9 @@
                     and only 65% of the rural population has access to improved water sources..</p>
                 <p style="font-size:18px;">Access to improved sanitation facilities ranges from 60% in urban areas to just 5% in rural areas .</p></br>
                 <img src="img/water.png" class="img-responsive" alt="responsive image" style= "margin-left: auto;margin-right: auto;"></br>
-               <div id="Sanitation" style="width: 500px; height: 300px"></div>
+               <div class="clearfix"></div>  
+					<div id="Sanitation" class="chart"></div>
+			  <!-- <div id="Sanitation" style="width: 500px; height: 300px"></div>-->
             </section>
 			
 			<!--<section data-scene="Wash2">
@@ -327,12 +324,13 @@
 				</div>
 
             </section>
-        </div>
+       </div>
         <!--map div-->
         <div id="map" class="col-sm-6 col-md-8 sidebar"></div>
     </div>
     <!--add a scrolling down arrow-->
-    <div class="animated zoomIn infinite glyphicon glyphicon-menu-down arrow-down"></div>
+    <!--<div class="animated zoomIn infinite glyphicon glyphicon-menu-down arrow-down"></div>-->
+</div>
 
 
 
@@ -387,7 +385,7 @@
 		
 	var Sanitation_Coverage_legend= 
 	 '<h7>Water Source</h7></br></br>'+
-	 '<i class="fas fa-circle"style="font-size:15px;color:#45a2e4;z-index: 1"></i><p><b>Well Location</b></p>';
+	 '<i class="fas fa-circle"style="font-size:15px;color:#337baa;z-index: 1"></i><p><b>Well Location</b></p>';
 	
     // DECLARE STYLES FOR EACH LAYER
     function stu_setColor(density){
@@ -500,8 +498,8 @@
            style: function(feature) {
         return {
             radius:3,
-			fillColor:'#45a2e4',
-            color: '#45a2e4',
+			fillColor:'#337baa',
+            color: '#337baa',
             weight: 1,
             opacity: 1,
             fillOpacity: 0.7		 
@@ -542,30 +540,23 @@
         layers: layers,
         legend: true, // if you do not want a legend feature, you can simply not define the createLegend function.
         scale: false,
-        navwidget: true,
+        navwidget: true
 
-        createMap: function () {
+       // createMap: function () {
             // create a map in the "map" div, set the view to a given place and zoom
-            var map = L.map('map', {zoomControl: false, scrollWheelZoom: false}).setView([44, -120], 8);
+         //   var map = L.map('map', {zoomControl: false, scrollWheelZoom: false}).setView([44, -120], 8);
 
             // add an base map, which can be either OSM, mapbox, tilelayer, wmslayer or those designed by yourself.
-			L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}', {maxZoom: 16}).addTo(map);
+		//	L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}', {maxZoom: 16}).addTo(map);
 		
-            //L.tileLayer('http://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png').addTo(map);
 
-            // // create a mini globe as the overview map control.
-            // var miniMap = new L.Control.GlobeMiniMap({
-            //     marker: 'red',
-            //     position: 'bottomleft'
-            // }).addTo(map);
-
-            L.control.zoom({ position: 'bottomright'}).addTo(map);
+          //  L.control.zoom({ position: 'bottomright'}).addTo(map);
 
             // hidden the credits, but show in the about page.
-            $(".leaflet-control-attribution").css("display", "none");
+          //  $(".leaflet-control-attribution").css("display", "none");
 
-            return map;
-        }
+          //  return map;
+       // }
     });
 </script>
 </body>
